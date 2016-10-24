@@ -2,6 +2,30 @@ execute pathogen#infect()
 syntax on
 filetype plugin indent on
 
+"syntastic linter
+function! SyntasticESlintChecker()
+  let l:npm_bin = ''
+  let l:eslint = 'eslint'
+
+  if executable('npm')
+      let l:npm_bin = split(system('npm bin'), '\n')[0]
+  endif
+
+  if strlen(l:npm_bin) && executable(l:npm_bin . '/eslint')
+    let l:eslint = l:npm_bin . '/eslint'
+  endif
+
+  let g:syntastic_javascript_eslint_exec = l:eslint
+endfunction
+
+
+let g:syntastic_javascript_checkers = ["eslint"]
+
+autocmd FileType javascript :call SyntasticESlintChecker()
+
+"jsx syntax
+let g:jsx_ext_required = 0
+
 set number
 set tabstop=2
 set shiftwidth=2
@@ -46,7 +70,7 @@ vnoremap <tab> %
 set wrap
 set textwidth=79
 set formatoptions=qrn1
-set colorcolumn=85
+set colorcolumn=100
 set cursorline
 "useful Esc remap
 inoremap jj <ESC>
@@ -92,3 +116,5 @@ nnoremap <Tab> <C-W><C-W>
 let g:airline#extensions#tabline#enabled = 1
 " ctrl-P setup
 set runtimepath^=~/.vim/bundle/ctrlp.vim
+"bash setup"
+"set shell=/bin/zsh\ -i
