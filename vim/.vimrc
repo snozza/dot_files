@@ -1,5 +1,7 @@
 execute pathogen#infect()
-syntax on
+if !exists("g:syntax_on")
+    syntax enable
+endif
 filetype plugin indent on
 
 "syntastic linter
@@ -18,13 +20,17 @@ function! SyntasticESlintChecker()
   let g:syntastic_javascript_eslint_exec = l:eslint
 endfunction
 
-
+"Linting
 let g:syntastic_javascript_checkers = ["eslint"]
+let g:syntastic_go_checkers = ['go', 'golint', 'govet']
 
 autocmd FileType javascript :call SyntasticESlintChecker()
 
 "jsx syntax
 let g:jsx_ext_required = 0
+
+"js specific
+let g:javascript_plugin_jsdoc = 1
 
 set number
 set tabstop=2
@@ -117,4 +123,4 @@ let g:airline#extensions#tabline#enabled = 1
 " ctrl-P setup
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 "bash setup"
-"set shell=/bin/zsh\ -i
+set shell=zsh\ -l

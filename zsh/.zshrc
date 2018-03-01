@@ -1,11 +1,13 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/asnead/.oh-my-zsh
+export ZSH=/Users/andrew.snead/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="robbyrussell"
+
+export TERM=xterm-256color
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -55,9 +57,9 @@ plugins=(osx terminalapp)
 
 # User configuration
 
-export PATH="$PATH:/Users/asnead/.rvm/gems/ruby-2.2.1/bin:/Users/asnead/.rvm/gems/ruby-2.2.1@global/bin:/Users/asnead/.rvm/rubies/ruby-2.2.1/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/asnead/.rvm/bin:/usr/local/sbin:/Users/asnead/.composer/vendor/bin"
+export PATH="$PATH:$HOME/go/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:/Users/asnead/.composer/vendor/bin"
 
-export PATH="$(brew --prefix homebrew/php/php56)/bin:$PATH"
+# export PATH="$(brew --prefix homebrew/php/php56)/bin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -79,7 +81,7 @@ source $ZSH/oh-my-zsh.sh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 #
 # Keys:
-export JWT_SECRET=1c0ea61a5718b96ced275be3aa99aed97220802db179066dbfbbba2be1f22abf
+export JWT_SECRET=example
 
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
@@ -90,3 +92,14 @@ export JWT_SECRET=1c0ea61a5718b96ced275be3aa99aed97220802db179066dbfbbba2be1f22a
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /Users/andrew.snead/.nvm/versions/node/v8.9.1/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/andrew.snead/.nvm/versions/node/v8.9.1/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /Users/andrew.snead/.nvm/versions/node/v8.9.1/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/andrew.snead/.nvm/versions/node/v8.9.1/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
